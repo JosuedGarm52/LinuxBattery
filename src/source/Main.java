@@ -15,10 +15,11 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Main {
 
-	private JFrame frame;
+	private JFrame frmBatterLinux;
 
 	/**
 	 * Launch the application.
@@ -28,7 +29,7 @@ public class Main {
 			public void run() {
 				try {
 					Main window = new Main();
-					window.frame.setVisible(true);
+					window.frmBatterLinux.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -43,26 +44,32 @@ public class Main {
 		initialize();
 	}
 	String ruta = "/home/josue-user/Imágenes/battEsc.png";
+	//String ruta = "BatteryLinx/src/Draw/battEsc.png";
+	//String relativeWebPath = "/src/Draw/battEsc.png";
+	//String absoluteDiskPath = getServletContext().getRealPath(relativeWebPath);
 	String bat="";
 	String estado="";
 	Bateria bateria = new Bateria();
+	JLabel lblNewLabel;
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmBatterLinux = new JFrame();
+		frmBatterLinux.setIconImage(Toolkit.getDefaultToolkit().getImage("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw/batt4.png"));
+		frmBatterLinux.setTitle("Battery Linux");
+		frmBatterLinux.setBounds(100, 100, 450, 300);
+		frmBatterLinux.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBatterLinux.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(12, 47, 138, 190);
-		lblNewLabel.setIcon(new ImageIcon(ruta));
-		frame.getContentPane().add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw/battEsc.png"));
+		frmBatterLinux.getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(168, 77, 245, 114);
-		frame.getContentPane().add(panel);
+		frmBatterLinux.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblStatus = new JLabel("Status:");
@@ -86,7 +93,7 @@ public class Main {
 			}
 		});
 		btnSalir.setBounds(296, 203, 117, 25);
-		frame.getContentPane().add(btnSalir);
+		frmBatterLinux.getContentPane().add(btnSalir);
 		bateria = new Bateria();
 		
 		try
@@ -97,12 +104,12 @@ public class Main {
         {
 	         excepcion.printStackTrace();
         }
-		JLabel lblEstado = new JLabel(estado);
+		final JLabel lblEstado = new JLabel(estado);
 		lblEstado.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblEstado.setBounds(76, 12, 124, 15);
 		panel.add(lblEstado);
 		final String v = bateria.getComando;
-		JLabel lblPorcentaje = new JLabel(bat);
+		final JLabel lblPorcentaje = new JLabel(bat);
 		lblPorcentaje.setFont(new Font("Dialog", Font.BOLD, 50));
 		lblPorcentaje.setBounds(24, 54, 176, 48);
 		panel.add(lblPorcentaje);
@@ -110,11 +117,37 @@ public class Main {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				bateria= new Bateria();
+				int vv = bateria.getNivelBateria();
+				switch(vv)
+				{
+					case 0:
+						lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw/battEsc.png"));
+					break;
+					case 1:
+						lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw//batt1.png"));
+					break;
+					case 2:
+						lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw//batt2.png"));
+					break;
+					case 3:
+						lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw//batt3.png"));
+					break;
+					case 4:
+						lblNewLabel.setIcon(new ImageIcon("/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw//batt4.png"));
+					break;
+					default:
+						JOptionPane.showMessageDialog(null, "Error");
+					break;
+				}
+				String f= bateria.getStatus();
+				lblEstado.setText(f);
+				String ff = bateria.getNivel()+"%";
+				lblPorcentaje.setText(ff);
 				JOptionPane.showMessageDialog(null, "Resultado: "+bat+" de la terminal: "+v);
 			}
 		});
 		btnActualizar.setBounds(167, 203, 117, 25);
-		frame.getContentPane().add(btnActualizar);
+		frmBatterLinux.getContentPane().add(btnActualizar);
 	}
 	
 	ImageIcon imagen1 =new ImageIcon("imagenes"+File.separator+"open.png");

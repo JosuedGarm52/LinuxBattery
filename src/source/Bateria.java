@@ -20,6 +20,27 @@ public class Bateria
 		return Status;
 	}
 	public String getComando="";
+	public int getNivelBateria()
+	{
+		if(nivel==0)
+		{
+			return 0;
+		}else
+		if(nivel<21)
+		{
+			return 1;
+		}else if(nivel <50)
+		{
+			return 2;
+		}else if(nivel <80)
+		{
+			return 3;
+		}else
+		{
+			return 4;
+		}
+		
+	}
 	private void leerArchivo()
 	{
 		try
@@ -41,7 +62,7 @@ public class Bateria
 	           char[] c_arr = line.toCharArray(); 
 	           int vuelta=10;
 	           String Numero= "";
-	           while(vuelta<c_arr.length) 
+	           while(vuelta<c_arr.length&&c_arr[vuelta]!='%') 
 	           {
 	        	   
 	        	   if(c_arr[vuelta]=='0'||c_arr[vuelta]=='1'||c_arr[vuelta]=='2'||c_arr[vuelta]=='3'||c_arr[vuelta]=='4'||c_arr[vuelta]=='5'||c_arr[vuelta]=='6'||c_arr[vuelta]=='7'||c_arr[vuelta]=='8'||c_arr[vuelta]=='9')
