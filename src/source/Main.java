@@ -142,8 +142,9 @@ public class Main {
 				String f= bateria.getStatus();
 				lblEstado.setText(f);
 				String ff = bateria.getNivel()+"%";
+				String fff = bateria.getComando;
 				lblPorcentaje.setText(ff);
-				JOptionPane.showMessageDialog(null, "Resultado: "+bat+" de la terminal: "+v);
+				JOptionPane.showMessageDialog(null, "Resultado: "+ff+" de la terminal: "+ fff);
 			}
 		});
 		btnActualizar.setBounds(167, 203, 117, 25);
