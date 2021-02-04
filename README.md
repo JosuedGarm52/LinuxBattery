@@ -10,7 +10,11 @@
  <img src="src/Draw/btPreview.png">  
   
 Preview: 14-enero-2020  
-
+  
+ <img src="src/Draw/btPreview1.png">  
+  
+Preview: 4-febrero-2020  
+  
 ## Instalacion
 Puede optar por la opcion de descargar este repositorio con el boton o introducir en la terminal el comando que esta a continuacion...  
 
