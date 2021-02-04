@@ -8,6 +8,8 @@
 
 ## Preview 
  <img src="src/Draw/btPreview.png">  
+  
+Preview: 14-enero-2020  
 
 ## Instalacion
 Puede optar por la opcion de descargar este repositorio con el boton o introducir en la terminal el comando que esta a continuacion...  
@@ -25,6 +27,8 @@ Para ejecutar el programa puede utilizar este comando en la terminal situada en 
 $ java -jar LinuxBattery.jar
 ```
 ## Funcionamiento
-Pulse **Actualizar** para obtener el registro de la bateria y verla en la aplicacion.  
+Pulse **Estado** para obtener el registro e informacion completa de la bateria.  
+  
+**LinuxBattery.desktop** puede utilizarse como plantilla para crear el lanzador para usarse de acceso directo en el escritorio.
   
 *Proximamente nuevas funciones*

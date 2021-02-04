@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Comment=LinuxBattery
+Name=LinuxBattery
+TryExec=/home/josue-user/Repos/ProyectoJava/BatteryLinux/LinuxBattery.jar
+Exec="/home/josue-user/Repos/ProyectoJava/BatteryLinux/LinuxBattery.jar" "%u" "&"
+Keywords=LinuxBattery;Bateria;Battery;
+Icon=/home/josue-user/Repos/ProyectoJava/BatteryLinux/src/Draw/battEsc.png
+Categories=Accesorios
+
